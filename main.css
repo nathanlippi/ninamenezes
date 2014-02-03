@@ -3,8 +3,16 @@ html, body {
 }
 
 body {
-    background: url(img/nina_field.jpg) no-repeat center;
+    background: url(img/nina_field.jpg) no-repeat 10%;
     background-size: 65% auto;
+
+    /* background: url(img/nina_field.jpg) no-repeat center; */
+    /* background-size: 65% auto; */
+
+    /* background: url(img/nina_field.jpg) no-repeat center 85%; */
+    /* background-size: 65% auto; */
+
+    /* background-size: 55% auto; */
     background-attachment: scroll;
 
     font-family: "Kaushan Script";
@@ -64,10 +72,15 @@ body {
 }
 
 
-.jumbotron.top {
+.jumbotron.jumbotron-top {
     color: black;
-    text-shadow: #ddd 0.2em 0.2em 0.2em;
 }
+.jumbotron-top h1, .jumbotron-top h2 {
+    text-align: right !important;
+    padding-right: 20%;
+    width: auto !important;
+}
+
 ul.nav {
     font-family: "Sansita One";
 }
