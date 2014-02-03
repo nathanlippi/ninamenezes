@@ -72,13 +72,12 @@ body {
 }
 
 
-.jumbotron.jumbotron-top {
+.jumbotron-top {
     color: black;
 }
 .jumbotron-top h1, .jumbotron-top h2 {
     text-align: right !important;
     padding-right: 10%;
-    width: auto !important;
 }
 
 ul.nav {
