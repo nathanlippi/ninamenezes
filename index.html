@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nina Menezes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link href="build/css/bootstrap.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="build/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+
+    <script type="text/javascript">
+        var timeline_json = 
+            [
+                {
+                  badge:"success",
+                  glyphicon: "thumbs-up",
+                  title: "Outstanding Academic Acheivement Award",
+                  subtitle: "University of Florida",
+                  date: "2013"
+                },
+                {
+                  badge:"primary",
+                  glyphicon: "music",
+                  title: "Doctor of Philosophy in Ethnomusicology",
+                  subtitle: "University of Florida",
+                  date: "2012-Present"
+                },
+                {
+                  badge:"success",
+                  glyphicon: "music",
+                  title: "Winner of the Young Artist Competition",
+                  subtitle: "Michigan",
+                  date: "2010"
+                },
+                {
+                  badge:"success",
+                  glyphicon: "book",
+                  title: "Gold Medal, Master of Philosophy Christian Studies",
+                  subtitle: "University of Madras",
+                  date: "2008"
+                },
+                {
+                  badge:"primary",
+                  glyphicon: "book",
+                  title: "Master of Philosophy in Christian Studies",
+                  subtitle: "University of Madras",
+                  date: "2006-2007"
+                },
+                {
+                  badge:"success",
+                  glyphicon: "thumbs-up",
+                  title: "Licentiate Diploma in Voice",
+                  subtitle: "Trinity College of Music, London",
+                  date: "2005"
+                },
+                {
+                  badge:"info",
+                  glyphicon: "music",
+                  title: "Voice Teacher",
+                  subtitle: "Chennai, India",
+                  date: "2003-2008"
+                },
+                {
+                  badge:"success",
+                  glyphicon: "book",
+                  title: "Silver Medal, Master of Arts English Literature",
+                  subtitle: "Stella Maris College",
+                  date: "2003"
+                },
+                {
+                  badge:"success",
+                  glyphicon: "thumbs-up",
+                  title: "Associate Diploma in Voice",
+                  subtitle: "Trinity College of Music, London",
+                  date: "2002"
+                },
+                {
+                  badge:"primary",
+                  glyphicon: "book",
+                  title: "Master of Arts in English Literature",
+                  subtitle: "Stella Maris College",
+                  date: "2001-2003"
+                },
+                {
+                  badge:"info",
+                  glyphicon: "book",
+                  title: "First voice competition; awarded first prize",
+                  subtitle: "Madras, India",
+                  date: "1987"
+                }
+            ];
+
+
+        $(document).ready(function()
+        {
+            /* Scrollto stuff */
+            $("ul.navbar-nav li").on("click", "a.scrollto", function(e) {
+                e.preventDefault();
+
+                $('html, body').animate({
+                    scrollTop: $($(this).attr("href")).offset().top-60
+                }, 900);
+            });
+
+            /* Generate timeline */
+            $.each(timeline_json, function(ii, obj)
+                {
+                    var str;
+
+                    str  = "<li"+(ii%2 ? " class=\"timeline-inverted\"" : "")+">";
+                    str += "<div class='timeline-badge "+obj.badge+"'>";
+                    str += "<i class='glyphicon glyphicon-"+obj.glyphicon+"'></i></div>";
+                    str += "<div class='timeline-panel'>";
+                    str += "<h4 class='timeline-title'>"+obj.title+"</h4>";
+                    str += "<p>"+obj.subtitle+"</p>";
+                    str += "<p><small class='text-muted'>"+obj.date+"</small></p>";
+                    str += "</div></div>";
+                    str += "</li>";
+
+                    $("ul.timeline").append(str);
+                });
+
+            /* Generate carousel */
+            var start_image_number = 1;
+            var max_image_number   = 15;
+
+            for(var ii = start_image_number; ii <= max_image_number; ii++)
+            {
+                var class_str = (ii === 1) ? "active item" : "item";
+
+                var str  = "<div class='"+class_str+"'>";
+                str     += "<div class='fill' style=\"background-image:url('img/press/img_"+ii+".jpg');\">";
+                str     += "<div class='container'></div>";
+                str     += "</div>"
+                str     += "</div>";
+
+                $(".carousel-inner").append(str);
+            }
+
+            $('.carousel').carousel();
+        });
+    </script>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a class="scrollto" href="#top">Home</a></li>
+            <li><a href="https://dl.dropboxusercontent.com/u/13292396/Resume.pdf">C.V.</a></li>
+            <li><a class="scrollto" href="#timeline">Timeline</a></li>
+            <li><a class="scrollto" href="#audio">Sound Clips</a></li>
+            <li><a class="scrollto" href="#press">Press & Media</a></li>
+            <li><a class="scrollto" href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <span id="top"></span>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron top special">
+      <h1 class="voffset5">Nina Menezes</h1>
+      <h2>[Ethno]musicologist, Soprano & Music Educator</h2>
+    </div>
+
+    <hr>
+
+	<!-- Start Timeline -->
+    <!-- http://bootsnipp.com/snippets/featured/timeline -->
+    <div class="container timeline-container">
+        <div class="page-header">
+            <h1 id="timeline">Timeline</h1>
+        </div>
+        <ul class="timeline">
+        </ul>
+    </div>
+	<!-- End Timeline -->
+
+    <hr>
+
+    <!-- Audio player -->
+    <div class="jumbotron special">
+        <div id="audio">
+            <iframe style="max-width:450px;width:100%;" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/74811188&amp;auto_play=false&amp;hide_related=false&amp;visual=true"></iframe>
+        </div>
+    </div>
+    <!-- End audio player -->
+
+    <hr>
+
+    <!-- Carousel -->
+    <!-- http://bootply.com/59900 -->
+    <div class="container fill">
+      <div id="press" class="carousel slide">
+        <div class="carousel-inner">
+        </div>
+        <div class="pull-center">
+          <a class="carousel-control left" href="#press" data-slide="prev">
+              <span class="glyphicon glyphicon-large glyphicon-chevron-left black"></span>
+          </a>
+          <a class="carousel-control right" href="#press" data-slide="next">
+              <span class="glyphicon glyphicon-large glyphicon-chevron-right black"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- End Carousel -->
+
+    <hr>
+
+    <div id="contact" class="jumbotron jumbotron-relative special">
+      <div class="bottom">
+        <h1>nina.menezes@gmail.com</h1>
+      </div>
+    </div>
+  </body>
+</html>
